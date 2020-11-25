@@ -46,7 +46,10 @@ router.get("/:id", async (req, res, next) => {
       return res.status(404).json(`Shorty ${id} not found`);
     }
     res.redirect(shorty.target);
-    updateShorty({ id }, { $inc: { views: 1 } });
+    updateShorty(
+      { id },
+      { $inc: { views: 1 }, $set: { lastAccessAt: new Date() } }
+    );
   } catch (error) {
     if (error.code === DUPLICATE_KEY) {
       res.status(409);

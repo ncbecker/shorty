@@ -44,6 +44,7 @@ const ShortiesTable = ({ shorties }: Props) => {
           <th>Target</th>
           <th>Views</th>
           <th>Created At</th>
+          <th>Last Access At</th>
         </tr>
       </thead>
       <tbody>
@@ -61,6 +62,7 @@ const ShortiesTable = ({ shorties }: Props) => {
             </td>
             <td>{shortie.views}</td>
             <td>{shortie.createdAt}</td>
+            <td>{shortie.lastAccessAt}</td>
           </tr>
         ))}
       </tbody>
