@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { postNewShorty } from "../api/shorties";
 import styled from "styled-components/macro";
 import ErrorMessage from "./ErrorMessage";
 import { NewShorty } from "../../../types/shorties";
-import { I18nContext } from "../contexts/i18n";
+import { useI18n } from "../contexts/i18n";
 
 const Form = styled.form`
   padding: 1em;
@@ -26,7 +26,7 @@ const InsertShorty = ({ onSuccess }) => {
   const [shorty, setShorty] = useState<NewShorty>(newShorty);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>(null);
-  const { dict } = useContext(I18nContext);
+  const { dict } = useI18n();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
