@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Shorties from "./pages/Shorties";
 import styled from "styled-components/macro";
 import GlobalStyle from "./GlobalStyle";
 import logoSrc from "./assets/logo.svg";
-import { I18nContext, localDicts } from "./contexts/i18n";
+import { I18nProvider } from "./contexts/i18n";
 import { LocalSelect } from "./components/LocalSelect";
 
 const Container = styled.div`
@@ -21,10 +21,9 @@ const Container = styled.div`
 `;
 
 const App = () => {
-  const [dict, setDict] = useState(localDicts.en);
   return (
     <>
-      <I18nContext.Provider value={{ dict, setDict }}>
+      <I18nProvider>
         <GlobalStyle />
         <Container>
           <header>
@@ -36,7 +35,7 @@ const App = () => {
             <Shorties />
           </main>
         </Container>
-      </I18nContext.Provider>
+      </I18nProvider>
     </>
   );
 };
