@@ -26,7 +26,7 @@ const InsertShorty = ({ onSuccess }) => {
   const [shorty, setShorty] = useState<NewShorty>(newShorty);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>(null);
-  const dict = useContext(I18nContext);
+  const { dict } = useContext(I18nContext);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
